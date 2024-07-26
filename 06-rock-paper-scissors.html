@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <script>
+      let totalWins = 0;
+      let totalGames = 0;
+      let winRate = (totalWins/totalGames)*100;
+    </script>
+  </head>
+  <body>
+    <p>ROCK PAPER SCISSORS</p>
+    <button onclick="
+      let randomNumber = (Math.random())*3;
+      let computerMove = '';
+      let result = ''; 
+
+      if (randomNumber >= 0 && randomNumber < 1){
+        computerMove = 'Rock';
+      }
+      else if (randomNumber >= 1 && randomNumber < 2){
+        computerMove = 'Paper';
+      }
+      else{
+        computerMove = 'Scissors';
+      }
+
+      if (computerMove === 'Rock'){
+        result = 'Tie';
+      }
+      else if (computerMove === 'Paper'){
+        result = 'You lose';
+      }
+      else{
+        result = 'You win';
+        ++totalWins;
+      }
+      ++totalGames;
+      console.log('Computer: '+computerMove+'! '+result+'!')
+      winRate = (totalWins/totalGames)*100;
+      console.log('Win-rate is '+winRate+'%');
+      alert('Computer: '+computerMove+'! '+result+'!');
+    ">Rock</button>
+
+    <button onclick="
+      randomNumber = (Math.random())*3;
+      winRate = (totalWins/totalGames)*100;
+      if (randomNumber >= 0 && randomNumber < 1){
+        computerMove = 'Rock';
+        result = 'You win';
+        ++totalWins;
+      }
+      else if (randomNumber >= 1 && randomNumber < 2){
+        computerMove = 'Paper';
+        result = 'Tie';
+      }
+      else{
+        computerMove = 'Scissors';
+        result = 'You lose';
+      }
+      ++totalGames;
+      console.log('Computer: '+computerMove+'! '+result+'!')
+      console.log('Win-rate is '+winRate+'%');
+      alert('Computer: '+computerMove+'! '+result+'!');
+    ">Paper</button>
+
+    <button onclick="
+      randomNumber = (Math.random())*3;
+      winRate = (totalWins/totalGames)*100;
+
+      if (randomNumber >= 0 && randomNumber < 1){
+        computerMove = 'Rock';
+        result = 'You lose';
+      }
+      else if (randomNumber >= 1 && randomNumber < 2){
+        computerMove = 'Paper';
+        result = 'You win';
+        ++totalWins;
+      }
+      else{
+        computerMove = 'Scissors';
+        result = 'Tie';
+      }
+      ++totalGames;
+      console.log('Computer: '+computerMove+'! '+result+'!')
+      console.log('Win-rate is '+winRate+'%');
+      alert('Computer: '+computerMove+'! '+result+'!');
+    ">Scissors</button>
+
+    
+
+  </body>
+</html>

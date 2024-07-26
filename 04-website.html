@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website</title>
+    <style>
+      .red-button {
+      background-color:red;
+      color:white;
+      border: black 1px solid;
+      }
+
+      .yellow-button {
+      background-color:yellow;
+      color:black;
+      border: black 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      The button of
+        <button title="That's a tooltip!" class="red-button"
+        onclick="
+          alert('Hello! This is an alert box!');
+        ">
+        hello
+        </button>
+      and the button of
+        <button class="yellow-button">
+        world
+        </button>
+      is in this paragraph.
+    </p>
+    
+    <script> // This is a comment.
+    /*
+      alert("Hello! This is an alert box!");
+    */
+      console.log(2+2);
+      console.log("text in console log");
+    </script>
+    
+  </body>
+</html>

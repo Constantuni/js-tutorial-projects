@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+    <style>
+      body{
+        font-family: Arial;
+      }
+
+      .click-button{
+        border: none;
+        background-color: black;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+
+      .is-subscribed{
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+      .cost-input{
+        font-size: 15px;
+        padding: 10px;
+      }
+      .calc-button{
+        background-color: green;
+        color: white;
+        padding: 12px 15px;
+        border: none;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .js-cost-par{
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Click the button.</p>
+    <button class="js-click-button click-button" onclick="
+      clickButton();
+    ">Click</button>
+
+    <p>Amazon Shipping Calculator (+$10 if less than $40)</p>
+    <input id="input1" class="js-cost-input cost-input" placeholder="Cost of order" onkeydown="
+      handleCostKeyDown(event);
+      /*console.log(event);
+      */
+    ">
+    <button class="js-calc-button calc-button" onclick="
+      calculateTotal();
+    ">Calculate</button>
+    <p class="js-cost-par"></p>
+
+    <script>
+      //console.log(typeof (String(12345)));
+
+      window.console.log(window.document);
+
+      function handleCostKeyDown(eventParam){
+        if(eventParam.key === 'Enter'){
+        calculateTotal();
+        }
+      }
+
+      function calculateTotal(){
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value);
+
+        if(cost < 0){
+          document.querySelector('.js-cost-par').innerHTML = `Please, enter a valid cost.`;
+        } else if(cost < 40){
+          cost = cost + 10;
+          document.querySelector('.js-cost-par').innerHTML = `Cost: $${cost}`;
+        }
+      }
+
+      function clickButton(){
+        const buttonElement = document.querySelector('.js-click-button');
+        if(buttonElement.innerText === 'Click'){
+          buttonElement.innerHTML = 'Clicked';
+          buttonElement.classList.add('is-subscribed');
+        } else{
+          buttonElement.innerHTML = 'Click';
+          buttonElement.classList.remove('is-subscribed');
+        }
+      }
+    </script>
+  </body>
+</html>

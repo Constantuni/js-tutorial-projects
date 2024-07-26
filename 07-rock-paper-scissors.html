@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p>ROCK PAPER SCISSORS</p>
+
+    <button onclick="
+      playGame('Rock');
+    ">Rock</button>
+
+    <button onclick="
+      playGame('Paper');
+    ">Paper</button>
+
+    <button onclick="
+      playGame('Scissors');
+    ">Scissors</button>
+
+    <script>
+      let result = '';
+      let totalWins = 0;
+      let totalGames = 0;
+      let winRate = (totalWins/totalGames)*100;
+
+      function playGame(playerMove){
+        if(playerMove === 'Scissors'){
+          const computerMove = pickComputerMove();
+          if (computerMove === 'Paper'){
+            result = 'You win';
+            ++totalWins;
+          } else if(computerMove === 'Rock'){
+            result = 'You lose';
+          } else{
+            result = 'Tie';
+          }
+          ++totalGames;
+          console.log(`You: ${playerMove}! vs Computer: ${computerMove}! --> ${result}`);
+          winRate = (totalWins/totalGames)*100;
+          console.log('Win-rate is '+winRate+'%');
+          alert(`You: ${playerMove}! vs Computer: ${computerMove}! --> ${result}`);
+
+        } else if(playerMove === 'Paper'){
+                const computerMove = pickComputerMove();
+            if (computerMove === 'Rock'){
+              result = 'You lose';
+            }
+            else if (computerMove === 'Scissors'){
+              result = 'You win';
+              ++totalWins;
+            }
+            else{
+              result = 'Tie';
+            }
+            ++totalGames;
+            console.log(`You: ${playerMove}! vs Computer: ${computerMove}! --> ${result}`);
+            winRate = (totalWins/totalGames)*100;
+            console.log('Win-rate is '+winRate+'%');
+            alert(`You: ${playerMove}! vs Computer: ${computerMove}! --> ${result}`);
+            
+        } else if (playerMove === 'Rock'){
+            const computerMove = pickComputerMove();
+            if (computerMove === 'Rock'){
+              result = 'Tie';
+            }
+            else if (computerMove === 'Paper'){
+              result = 'You lose';
+            }
+            else{
+              result = 'You win';
+              ++totalWins;
+            }
+            ++totalGames;
+            console.log(`You: ${playerMove}! vs Computer: ${computerMove}! --> ${result}`);
+            winRate = (totalWins/totalGames)*100;
+            console.log('Win-rate is '+winRate+'%');
+            alert(`You: ${playerMove}! vs Computer: ${computerMove}! --> ${result}`);
+          }
+      }
+
+      function pickComputerMove(){
+        const randomNumber = (Math.random())*3;
+        let computerMove = '';
+        if (randomNumber >= 0 && randomNumber < 1){
+          computerMove = 'Rock';
+        } else if (randomNumber >= 1 && randomNumber < 2){
+          computerMove = 'Paper';
+        } else{
+          computerMove = 'Scissors';
+        }
+        return computerMove;
+      }
+    </script>
+  </body>
+</html>
